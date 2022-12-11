@@ -17,6 +17,19 @@
 类似于图中效果
 
 ![头像](http://i.imgur.com/sg2dkuY.png?1)
+```python
+from PIL import Image,ImageDraw,ImageFont
+def get_pic_mark():
+    # 打开图片
+    pic=Image.open('logo.png')
+    # 初始化Draw
+    draw=ImageDraw.ImageDraw(pic)
+    # 定义创建字体
+    fonts=ImageFont.truetype("C:\\WINDOWS\\Fonts\\Consolas\\consolaz.ttf", 108)
+    draw.text((pic.width * 0.8, pic.height * 0.1), u"8", font=fonts, fill='red')
+    pic.save('save.png')
+    return 1
+```
 
 **第 0001 题：**做为 Apple Store App 独立开发者，你要搞限时促销，为你的应用**生成激活码**（或者优惠券），使用 Python 如何生成 200 个激活码（或者优惠券）？
 ```python
