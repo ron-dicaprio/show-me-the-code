@@ -19,7 +19,22 @@
 ![头像](http://i.imgur.com/sg2dkuY.png?1)
 
 **第 0001 题：**做为 Apple Store App 独立开发者，你要搞限时促销，为你的应用**生成激活码**（或者优惠券），使用 Python 如何生成 200 个激活码（或者优惠券）？
-
+```py
+def get_active_code(Lenth,Nums):
+    active_code_list=[]
+    for codes in range(0,Nums):
+        # 取值的池子
+        code_pool = "0123456789" + string.ascii_uppercase 
+        # 定义长度
+        active_code = ''.join(random.sample(code_pool,Lenth))
+        if active_code in active_code_list:
+            # 如果有重复的会导致生成出来active_code_list的数量少一位. 
+            # todo list
+            pass
+        else:
+            active_code_list.append(active_code)
+    return active_code_list
+```
 **第 0002 题**：将 0001 题生成的 200 个激活码（或者优惠券）保存到 **MySQL** 关系型数据库中。
 
 **第 0003 题：**将 0001 题生成的 200 个激活码（或者优惠券）保存到 **Redis** 非关系型数据库中。
