@@ -32,7 +32,7 @@ def get_pic_mark():
 ```
 ![icon](https://raw.githubusercontent.com/ron-dicaprio/show-me-the-code/master/save.png)  
 
-**第 0001 题：**做为 Apple Store App 独立开发者，你要搞限时促销，为你的应用**生成激活码**（或者优惠券），使用 Python 如何生成 200 个激活码（或者优惠券）？
+**第 0001 题：**做为 Apple Store App 独立开发者，你要搞限时促销，为你的应用**生成激活码**（或者优惠券）,使用 Python 如何生成 200 个激活码（或者优惠券）？
 ```python
 def get_active_code(Lenth,Nums):
     active_code_list=[]
