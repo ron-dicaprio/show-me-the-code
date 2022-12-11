@@ -13,8 +13,8 @@
 
 ----------
 
-**第 0000 题：**将你的 QQ 头像（或者微博头像）右上角加上红色的数字，类似于微信未读信息数量那种提示效果。
-类似于图中效果
+**第 0000 题：将你的 QQ 头像（或者微博头像）右上角加上红色的数字，类似于微信未读信息数量那种提示效果。
+类似于图中效果**
 
 ![头像](http://i.imgur.com/sg2dkuY.png?1)
 ```python
@@ -32,7 +32,7 @@ def get_pic_mark():
 ```
 ![icon](https://raw.githubusercontent.com/ron-dicaprio/show-me-the-code/master/save.png)  
 
-**第 0001 题：**做为 Apple Store App 独立开发者，你要搞限时促销，为你的应用**生成激活码**（或者优惠券）,使用 Python 如何生成 200 个激活码（或者优惠券）？
+**第 0001 题：做为 Apple Store App 独立开发者，你要搞限时促销，为你的应用生成激活码（或者优惠券）,使用 Python 如何生成 200 个激活码（或者优惠券）？**
 ```python
 def get_active_code(Lenth,Nums):
     active_code_list=[]
@@ -50,7 +50,7 @@ def get_active_code(Lenth,Nums):
     return active_code_list
 ```
 
-**第 0002 题**：将 0001 题生成的 200 个激活码（或者优惠券）保存到 **MySQL** 关系型数据库中。
+**第 0002 题**：将 0001 题生成的 200 个激活码（或者优惠券）保存到MySQL 关系型数据库中。
 ```python
 import pymysql
 def exec_pymysql(str_sql):
@@ -84,7 +84,7 @@ for active_codes in get_active_code(20,10):
         print(e)
 ```
 
-**第 0003 题：**将 0001 题生成的 200 个激活码（或者优惠券）保存到 **Redis** 非关系型数据库中。
+**第 0003 题：**将 0001 题生成的 200 个激活码（或者优惠券）保存到 Redis 非关系型数据库中。
 ```python
 import redis
 # 连接redis，写到序号0的缓存库中
