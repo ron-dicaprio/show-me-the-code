@@ -202,7 +202,7 @@ verify_pics.save('save.png')
 
 **第 0011 题：** 敏感词f_words,当用户输入敏感词语时,则打印出 Freedom,否则打印出 Human Rights.
     
-````python
+```python
 f_words='北京 \
 程序员 \
 公务员 \
