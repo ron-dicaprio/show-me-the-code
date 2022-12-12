@@ -174,7 +174,6 @@ verify_pics=Image.new('RGB', (600, 140), (255, 255, 255))
 
 fonts=ImageFont.truetype("C:\\WINDOWS\\Fonts\\Consolas\\consolaz.ttf", 108)
 draw=ImageDraw.ImageDraw(verify_pics)
-index = 1
 
 # 定义随机颜色函数
 def RandomColor():
@@ -187,7 +186,7 @@ for x in range(verify_pics.width):
 
 # 减少三次verify_pics_height计算
 verify_pics_height=verify_pics.height * 0.2
-
+index = 1
 for words in active_code:
     draw.text((verify_pics.width * 0.2 * index,  verify_pics_height), words, font=fonts, fill=RandomColor())
     index+=1
