@@ -231,6 +231,33 @@ else:
 ```
 
 **第 0012 题：** 敏感词文本文件 filtered_words.txt，里面的内容 和 0011题一样，当用户输入敏感词语，则用 星号 * 替换，例如当用户输入「北京是个好城市」，则变成「**是个好城市」。
+```python
+f_words='北京 \
+程序员 \
+公务员 \
+领导 \
+牛比 \
+牛逼 \
+你娘 \
+你妈 \
+love \
+sex \
+jiangge'
+
+input_words=input('请输入内容：\n')
+
+Freedom=0
+for word in f_words.split():
+    if word in input_words:
+        res=input_words.replace(word,'*'*len(word))
+        print(res)
+        Freedom=1
+    else:
+        pass
+
+if Freedom==0:
+    print(input_words)
+```
 
 **第 0013 题：** 用 Python 写一个爬图片的程序，爬 [这个链接里的日本妹子图片 :-)](http://tieba.baidu.com/p/2166231880)
 
