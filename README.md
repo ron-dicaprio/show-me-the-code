@@ -76,7 +76,7 @@ try:
 except Exception as e:
     print(e)
 
-for active_codes in get_active_code(20,10):
+for active_codes in get_active_code(20,200):
     print(active_codes)
     str_sql2='insert into active_codes_pool (active_code) values ("%s") ' % (active_codes)
     try:
