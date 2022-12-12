@@ -162,7 +162,7 @@ for pics in os.listdir(pathdir):
 ```python
 import random,string
 from PIL import Image,ImageDraw,ImageFont,ImageFilter
-# 字符池
+# 字符集
 #code_pool = '0123456789' + string.ascii_lowercase + string.ascii_uppercase
 code_pool = string.ascii_lowercase + string.ascii_uppercase
 
@@ -179,7 +179,7 @@ draw=ImageDraw.ImageDraw(verify_pics)
 def RandomColor():
     return (random.randint(64, 255), random.randint(64, 255), random.randint(64, 255))
 
-# 像素填充
+# verify_pics像素填充
 for x in range(verify_pics.width):
     for y in range(verify_pics.height):
         draw.point((x, y), fill=RandomColor())
@@ -190,6 +190,7 @@ index = 1
 for words in active_code:
     draw.text((verify_pics.width * 0.2 * index,  verify_pics_height), words, font=fonts, fill=RandomColor())
     index+=1
+    
 # 模糊处理一下
 verify_pics = verify_pics.filter(ImageFilter.BLUR)
 verify_pics.save('save.png')
