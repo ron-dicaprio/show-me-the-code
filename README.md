@@ -55,6 +55,24 @@ def get_active_code(Lenth,Nums):
 **第 0002 题**：将 0001 题生成的 200 个激活码（或者优惠券）保存到MySQL 关系型数据库中。
 ```python
 import pymysql
+
+def get_active_code(Lenth,Nums):
+    active_code_list=[]
+    # 取值的池子
+    code_pool = "0123456789" + string.ascii_uppercase     
+    for codes in range(0,Nums):
+        # 定义取值长度
+        # choices:放回抽样,sample:不放回抽样
+        # active_code = ''.join(random.choices(code_pool,k=Lenth))
+        active_code = ''.join(random.sample(code_pool,Lenth))
+        if active_code in active_code_list:
+            # 如果有重复的会导致生成出来active_code_list的数量少一位. 
+            # todo list
+            pass
+        else:
+            active_code_list.append(active_code)
+    return active_code_list
+
 def exec_pymysql(str_sql):
     try:
         conn = pymysql.connect(host='127.0.0.1', user='root',db='active_codes', passwd='Gepoint',charset='utf8mb4')
@@ -89,6 +107,24 @@ for active_codes in get_active_code(20,200):
 **第 0003 题：** 将 0001 题生成的 200 个激活码（或者优惠券）保存到 Redis 非关系型数据库中。
 ```python
 import redis
+
+def get_active_code(Lenth,Nums):
+    active_code_list=[]
+    # 取值的池子
+    code_pool = "0123456789" + string.ascii_uppercase     
+    for codes in range(0,Nums):
+        # 定义取值长度
+        # choices:放回抽样,sample:不放回抽样
+        # active_code = ''.join(random.choices(code_pool,k=Lenth))
+        active_code = ''.join(random.sample(code_pool,Lenth))
+        if active_code in active_code_list:
+            # 如果有重复的会导致生成出来active_code_list的数量少一位. 
+            # todo list
+            pass
+        else:
+            active_code_list.append(active_code)
+    return active_code_list
+
 # 连接redis，写到序号0的缓存库中
 redis_conn=redis.Redis(host='127.0.0.1',port=6379,DB=0)
 
