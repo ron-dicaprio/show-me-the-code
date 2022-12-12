@@ -115,6 +115,36 @@ def get_count():
 ```
 
 **第 0005 题：** 你有一个目录，装了很多照片，把它们的尺寸变成都不大于 iPhone5 分辨率的大小。
+```python
+import re,os
+from PIL import Image
+# get filename from url address.
+def get_image_from_files(url):
+    pattern = re.search("([|.|\w|\s|-])*?.(jpg|png|jpeg|bmp)", url.lower())
+    if not pattern:
+        return False
+    else:
+        return True
+
+# 获取当前目录下文件
+pathdir=os.getcwd()
+# 只取一级目录
+for pics in os.listdir(pathdir):
+    pic_path=pathdir+'\\'+pics
+    # 判断是否图片
+    if get_image_from_files(pic_path) == True:
+        cut_pics=Image.open(pic_path)
+        # cut_pics.width,cut_pics.height 828
+        if cut_pics.width > 828  and  cut_pics.height > 1792:
+            save_pics=cut_pics.resize((828,1792))
+            save_pics.save('save_'+pic_path)
+            print('file saved!')
+        else:
+            print(pic_path,':',cut_pics.width,'*',cut_pics.height)
+
+    else:
+        pass
+```
 
 **第 0006 题：** 你有一个目录，放了你一个月的日记，都是 txt，为了避免分词的问题，假设内容都是英文，请统计出你认为每篇日记最重要的词。
 
