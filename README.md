@@ -39,7 +39,9 @@ def get_active_code(Lenth,Nums):
     # 取值的池子
     code_pool = "0123456789" + string.ascii_uppercase     
     for codes in range(0,Nums):
-        # 定义长度
+        # 定义取值长度
+        # choices:放回抽样,sample:不放回抽样
+        # active_code = ''.join(random.choices(code_pool,k=Lenth))
         active_code = ''.join(random.sample(code_pool,Lenth))
         if active_code in active_code_list:
             # 如果有重复的会导致生成出来active_code_list的数量少一位. 
