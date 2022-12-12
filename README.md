@@ -159,8 +159,46 @@ for pics in os.listdir(pathdir):
 **第 0010 题：** 使用 Python 生成类似于下图中的**字母验证码图片**
 
 ![字母验证码](http://i.imgur.com/aVhbegV.jpg)
+```python
+import random,string
+from PIL import Image,ImageDraw,ImageFont,ImageFilter
+# 字符池
+#code_pool = '0123456789' + string.ascii_lowercase + string.ascii_uppercase
+code_pool = string.ascii_lowercase + string.ascii_uppercase
 
-- [阅读资料](http://stackoverflow.com/questions/2823316/generate-a-random-letter-in-python)
+# 使得同一个验证码中字符不重复
+active_code = ''.join(random.sample(code_pool,4))
+
+# 生成一个600*140的图片对象
+verify_pics=Image.new('RGB', (600, 140), (255, 255, 255))
+
+fonts=ImageFont.truetype("C:\\WINDOWS\\Fonts\\Consolas\\consolaz.ttf", 108)
+draw=ImageDraw.ImageDraw(verify_pics)
+index = 1
+
+# 定义随机颜色函数
+def RandomColor():
+    return (random.randint(64, 255), random.randint(64, 255), random.randint(64, 255))
+
+# 像素填充
+for x in range(verify_pics.width):
+    for y in range(verify_pics.height):
+        draw.point((x, y), fill=RandomColor())
+
+# 减少三次verify_pics_height计算
+verify_pics_height=verify_pics.height * 0.2
+
+for words in active_code:
+    draw.text((verify_pics.width * 0.2 * index,  verify_pics_height), words, font=fonts, fill=RandomColor())
+    index+=1
+# 模糊处理一下
+verify_pics = verify_pics.filter(ImageFilter.BLUR)
+verify_pics.save('save.png')
+```
+![验证码](https://raw.githubusercontent.com/ron-dicaprio/show-me-the-code/master/save10.png)  
+
+
+- [阅读资料](http://stackoverflow.com/questions/2823316/generate-a-random-letter-in-python)  
 
 **第 0011 题：** 敏感词文本文件 filtered_words.txt，里面的内容为以下内容，当用户输入敏感词语时，则打印出 Freedom，否则打印出 Human Rights。
 
