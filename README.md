@@ -68,7 +68,7 @@ def get_active_code(Lenth,Nums):
         if active_code in active_code_list:
             # 如果有重复的会导致生成出来active_code_list的数量少一位. 
             # todo list
-            pass
+            active_code = ''.join(random.sample(code_pool,Lenth))
         else:
             active_code_list.append(active_code)
     return active_code_list
@@ -148,7 +148,6 @@ def get_count():
         print(key,':',len(res))
         get_count_list.update({key:len(res)})
         print(get_count_list)
-    content.close()
     return get_count_list
 ```
 
